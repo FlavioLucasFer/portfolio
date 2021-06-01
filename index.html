@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html>
+<link rel="stylesheet" href="index.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<head>
+	<title>Meu portfolio</title>
+
+	<script src='http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.js'></script>
+	<script src="https://kit.fontawesome.com/c809261296.js" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		var expandResume = true;
+		var expandMyTasks = true;
+		var nxColor = 0;
+
+		$(document).on('click', '#buttonShowMoreLessResume', () => {
+			const RESUME_CLASS = '.resume';
+			const LABEL_ID = '#labelShowMoreLessResume'
+
+			if (expandResume) {
+				$(RESUME_CLASS).animate({ maxHeight: '1000px' }, 500);
+				$(LABEL_ID).html('show less');
+			} 
+			
+			else {
+				$(RESUME_CLASS).animate({ maxHeight: '180px' }, 250);
+				$(LABEL_ID).html('show more');
+			} 
+			
+			expandResume = !expandResume;
+		});
+
+		$(document).on('click', '#buttonShowMoreLessMyTasks', () => {
+			const RESUME_CLASS = '.project-description-mytasks';
+			const LABEL_ID = '#labelShowMoreLessMyTasks'
+
+			if (expandMyTasks) {
+				$(RESUME_CLASS).animate({ maxHeight: '1000px' }, 500);
+				$(LABEL_ID).html('show less');
+			} 
+			
+			else {
+				$(RESUME_CLASS).animate({ maxHeight: '100px' }, 250);
+				$(LABEL_ID).html('show more');
+			} 
+			
+			expandMyTasks = !expandMyTasks;
+		});
+
+		function nextColor(nxC) {
+			const COLORS = ['#ff00ae', '#00f040', '#00c8ff'];
+
+			if (nxC === 2) nxColor = 0; 
+			else nxColor++;
+
+			return COLORS[nxC];
+		}
+
+		$(document).on('mouseenter', '#buttonShowMoreLessResume', () => {
+			const CLASS = '.animated-bottom-border';
+
+			$(CLASS).css('width', '0px');
+			$(CLASS).css('background-color', nextColor(nxColor));
+			$(CLASS).animate({ width: '100%' }, 250);
+		});
+
+		$(document).on('mouseleave', '#buttonShowMoreLessResume', () => {
+			$('.animated-bottom-border').animate({ width: '0px' }, 250);
+		});
+
+		$(document).on('mouseenter', '#buttonShowMoreLessMyTasks', () => {
+			const CLASS = '.animated-bottom-border-mytasks';
+
+			$(CLASS).css('width', '0px');
+			$(CLASS).css('background-color', nextColor(nxColor));
+			$(CLASS).animate({ width: '100%' }, 250);
+		});
+
+		$(document).on('mouseleave', '#buttonShowMoreLessMyTasks', () => {
+			$('.animated-bottom-border-mytasks').animate({ width: '0px' }, 250);
+		});
+
+		$(document).on('mouseenter', '#previousProject', () => {
+			const CLASS = '.previous-project-icon';
+
+			$(CLASS).css('color', nextColor(nxColor));
+		});
+
+		$(document).on('mouseleave', '#previousProject', () => {
+			const CLASS = '.previous-project-icon';
+
+			$(CLASS).css('color', '#000');
+		});
+
+		$(document).on('mouseenter', '#nextProject', () => {
+			const CLASS = '.next-project-icon';
+
+			$(CLASS).css('color', nextColor(nxColor));
+		});
+
+		$(document).on('mouseleave', '#nextProject', () => {
+			const CLASS = '.next-project-icon';
+
+			$(CLASS).css('color', '#000');
+		});
+
+		$(document).on('mousedown', '#previousProject', () => {
+			const BUTTON_ID = '#projectsRow';
+			const LEFT_POSITION = $(BUTTON_ID).scrollLeft();
+			$(BUTTON_ID).animate({ scrollLeft: LEFT_POSITION - 315 }, 600);
+		});
+
+		$(document).on('mousedown', '#nextProject', () => {
+			const BUTTON_ID = '#projectsRow';
+			const LEFT_POSITION = $(BUTTON_ID).scrollLeft();
+			$(BUTTON_ID).animate({ scrollLeft: LEFT_POSITION + 315 }, 600);
+		});
+
+
+	</script>
+</head>
+
+<body>
+	<div id="container">
+		<main id="main">
+			<section id="personalInformations">
+				<h1>My Portfolio</h1>
+
+				<hr>
+
+				<h2>Flavio Lucas Fernandes</h2>
+				
+				<div id="resumeContainer">
+					<div id="resume" class="resume">
+						<i id="graduateIcon" class="fas fa-user-graduate no-margin-top" title="Graduation course">
+							<label for="graduateIcon">
+								Software Engeenering
+							</label>
+						</i>
+						
+						<i id="graduatePeriodIcon" class="fas fa-clock" style="margin-top: 0;" title="Graduation period">
+							<label for="graduatePeriodIcon">
+								Graduating (completed in 2022)
+							</label>
+						</i>
+
+						<br>
+						
+						<i id="universityIcon" class="fas fa-university" title="University">
+							<label for="universityIcon">
+								Federal Institute of Paraná (IFPR), Brazil.
+							</label>
+						</i>
+						
+						<br>
+
+						<i id="jobIcon" class="fas fa-laptop-code" title="Work experience">
+							<label for="jobIcon" style="margin-left: 1px;">
+								1 year and 3 months of internship in web development (Ápice Sistemas)
+							</label>
+						</i>
+
+						<br>
+
+						<i  id="programmingLanguages" class="fas fa-terminal" title="Programming languages">
+							<label for="programmingLanguages" style="margin-left: 4px;">
+								EcmaScript 6 (Javascript), Java, Python, C, C++ and Dart
+							</label>
+						</i>
+
+						<br>
+
+						<i id="frameworks" class="fas fa-code" title="Frameworks and technologies">
+							<label for="frameworks" style="margin-left: 4px;">
+								HTML5, CSS3, React, React Native, SQL Databases, Pandas (DataScience) and IoT (Internet of Things)
+							</label>
+						</i>
+
+						<br>
+
+						<i id="papers" class="fas fa-paperclip" title="Published papers">
+							<label for="papers" style="margin-left: 14px;">
+								<a href="https://drive.google.com/file/d/1BaOjdccTxjxh1tRfUmEKc3k6jWe-LLxB/view" target="_blank">
+									"Sobre o Perfil e as Motivações de Voluntários do StackOverflow em Português"
+								</a>
+							</label>
+						</i>
+
+						<br>
+
+						<i id="research" class="fas fa-search" title="Current research and extension project">
+							<label for="research">
+								Development of a device to help people with covid-19 using IoT and development of a covid-19 data observatory, 
+								using DataScience, in the region of Paranavaí, Paraná, Brazil.
+							</label>
+						</i>
+						
+						<i id="awards" class="fas fa-medal" title="Competitions won">
+							<label for="awards">
+								1st place in the line-follower robots competition and the IoT competition at the IFPR Robotics Olympiad in 2021.
+								2nd place in the hackathon of the InovaTec event in 2019.
+							</label>
+						</i>
+
+						<br>
+						<br>
+
+						<i id="github" class="fab fa-github" title="My Github profile">
+							<label for="github">
+								<a href="https://github.com/FlavioLucasFer"  target="_blank">/FlavioLucasFer</a>
+							</label>
+						</i>
+						
+						<i id="linkedin" class="fab fa-linkedin-in" title="My Linkedin profile">
+							<label for="linkedin">
+								<a href="https://www.linkedin.com/in/flavio-lucas-82463b20b/"  target="_blank">/in/flavio-lucas-82463b20b</a>
+							</label>
+						</i>
+						
+						<i id="email" class="fas fa-envelope" title="My e-mail">
+							<label for="email">
+								flaviolukfer@gmail.com
+							</label>
+						</i>
+
+						<i id="whatsapp" class="fab fa-whatsapp" title="My Whatsapp">
+							<label for="whatsapp">
+								+55 (44) 9 9154-9118
+							</label>
+						</i>
+					</div>
+					
+					<div class="text-align-right">
+						<button id="buttonShowMoreLessResume" class="button-expand animate-bb">
+							<label id="labelShowMoreLessResume" for="buttonShowMoreLessResume">show more</label>
+							<div class="animated-bottom-border"></div>
+						</button>
+					</div>
+				</div>
+			</section>
+
+			<section id="projects">
+				<h3>My Projects</h3>
+
+				
+				<div class="relative">
+					<button id="previousProject" class="scroll-button">
+						<i class="fas fa-angle-left previous-project-icon"></i>
+					</button>
+					
+					<button id="nextProject" class="scroll-button">
+						<i class="fas fa-angle-right next-project-icon"></i>
+					</button>
+
+					<div id="projectsRow" class="row">	
+						<article class="column">
+							<div class="content card-width">
+								<img src="./images/mytask-1080x920.png" alt="Banner image of MyTask App" style="width: 100%" />
+								<h3>MyTasks</h3>
+								<div>
+									<p class="project-description-mytasks">
+										Built using the React Native framework, MyTasks is a mobile app
+										that helps people manage their daily tasks. Features include: 
+										add, edit and delete tasks, determine day and time to receive 
+										notification of task alert, change color, mark as done or not done, 
+										and count time spent on task. In addition, it is possible to switch 
+										themes between light and dark, switch languages between English and Brazilian Portuguese and much more.
+									</p>
+									
+									<a href="https://github.com/FlavioLucasFer/mytasks" target="_blank">open on github</a>
+
+									<div class="text-align-right">
+										<button id="buttonShowMoreLessMyTasks" class="button-expand animate-bb">
+											<label id="labelShowMoreLessMyTasks" for="buttonShowMoreLessMyTasks">show more</label>
+											<div class="animated-bottom-border-mytasks"></div>
+										</button>
+									</div>
+								</div>
+							</div>
+						</article>
+					</div>
+				</div>
+			</section>
+
+			<section id="spotlightProject" style="margin-top: 10px;">
+				<div class="content">
+					<h3>MyTasks</h3>
+					<img src="./images/mytask-1080x920.png" style="width: 100%;" />
+					<p>
+						Built using the React Native framework, MyTasks is a mobile app
+						that helps people manage their daily tasks. Features include:
+						add, edit and delete tasks, determine day and time to receive
+						notification of task alert, change color, mark as done or not done,
+						and count time spent on task. In addition, it is possible to switch
+						themes between light and dark, switch languages between English and Brazilian Portuguese and much more.
+					</p>
+
+					<a href="https://github.com/FlavioLucasFer/mytasks" target="_blank">open on github</a>
+				</div>
+			</section>
+		</main>
+
+		<footer id="footer">
+			Linkedin: <a href="https://www.linkedin.com/in/flavio-lucas-82463b20b/" target="_blank">https://www.linkedin.com/in/flavio-lucas-82463b20b/</a> |
+			Trampos: <a href="https://trampos.co/flaviolfernandes" target="_blank">https://trampos.co/flaviolfernandes</a> |
+			Lattes: <a href="http://lattes.cnpq.br/9741903689377117" target="_blank">http://lattes.cnpq.br/9741903689377117</a>
+			E-mail: flaviolukfer@gmail.com |
+			Whatsapp: (44) 9 9154-9118
+		</footer>
+	</div>
+</body>
+
+</html>

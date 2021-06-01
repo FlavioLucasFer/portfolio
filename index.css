@@ -1,0 +1,226 @@
+:root {
+	--main-background-color: #18191a;
+	--main-label-color: #fff;
+	--main-text-color: #b0b3b8;
+	--project-card-color: #2c2c2c;
+}
+
+* {
+	box-sizing: border-box;
+	font-family: Arial, Helvetica, sans-serif;
+}		
+
+body {
+	background-color: var(--main-background-color);
+	height: 100vh;
+	margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: var(--main-label-color);
+}
+
+h1 {
+	font-size: 50px;
+	word-break: break-all;
+}
+
+h2 {
+	font-size: 30px;
+}
+
+p {
+	text-align: justify;
+	color: var(--main-text-color);
+}
+
+a {
+	color: var(--main-label-color);
+	text-decoration: none;
+}
+
+a:active {
+	font-style: italic;
+}
+
+a:visited {
+	color: #719cee;
+}
+
+main {
+	max-width: 1000px;
+	margin: auto;
+	padding-bottom: 100px;
+}
+
+@media screen and (max-width:900px) {
+	main {
+		padding-left: 10px;
+		padding-bottom: 10px;
+	}
+}
+
+footer {
+	position: fixed;
+	bottom: 0;
+	padding: 5px;
+	width: 100%;
+	background-color: rgba(0, 0, 0, .6);
+	
+	font-size: 14px;
+	text-align: center;
+	color: #fff;
+	font-weight: bold;
+}
+
+.button-expand {
+	border: 0;
+	padding: 5px 0px;
+	background-color: var(--main-background-color);
+	border-bottom: 5px solid transparent;
+	cursor: pointer;
+	font-weight: bold;
+	color: var(--main-label-color);
+	font-size: 16px;
+}
+
+.button-expand, .button-expand>label {
+	cursor: pointer;
+	background-color: transparent;
+}
+
+.animate-bb {
+	position: relative;
+}
+
+.animated-bottom-border {
+	background-color: #ff00ae;
+	width: 0%;
+	height: 40%;
+	position: absolute;
+	top: 50%;
+	opacity: .5;
+}
+
+.animated-bottom-border-mytasks {
+	background-color: #ff00ae;
+	width: 0%;
+	height: 40%;
+	position: absolute;
+	top: 50%;
+	opacity: .5;
+}
+
+.resume {
+	max-height: 100%;
+	overflow: hidden;
+	text-align: left;
+	text-overflow: ellipsis;
+	word-wrap: break-word;
+	max-height: 180px;
+	line-height: 20px;
+}
+
+.resume>i {
+	margin-top: 10px;
+	margin-left: 25px;
+	font-size: 25px;
+	color: #fff;
+}
+
+.resume>i:first-child {
+	margin-top: 0px;
+}
+
+.resume>i>label {
+	color: var(--main-text-color);
+	vertical-align: center;
+	font-weight: normal;
+	font-size: 18px;
+	margin-left: 10px;
+}
+
+.project-description-mytasks {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	word-wrap: break-word;
+	max-height: 100px;
+	line-height: 20px;
+}
+
+.text-align-right {
+	text-align: right;
+}
+
+.row {
+	display: flex;
+	overflow-x: auto;
+	-ms-overflow-style: none;
+ 	scrollbar-width: none; 
+}
+
+.row::-webkit-scrollbar {
+	display: none;
+}
+
+.column {
+	padding: 0px 8px;
+}
+
+.column:first-child {
+	padding-left: 0px;
+}
+
+.column:last-child {
+	padding-right: 0px;
+}
+
+.card-width {
+	width: 300px;
+}
+
+.content {
+	background-color: var(--project-card-color);
+	box-shadow: 1px 1px 5px rgba(0, 0, 0, .5);
+	padding: 15px;
+	border-radius: 5px;
+}
+
+.relative {
+	position: relative;
+}
+
+.scroll-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background-color: #fff;
+	box-shadow: 1px 1px 5px rgba(0, 0, 0, .5);
+	position: absolute;
+	border: 0;
+	top: 40%;
+	cursor: pointer;
+}
+
+.scroll-button>i {
+	font-size: 35px;
+	color: #000;
+}
+
+.scroll-button:hover {
+	background-color: rgba(255, 255, 255, .9);
+}
+
+#nextProject {
+	padding-left: 8px;
+	right: -25px;
+}
+
+#previousProject {
+	padding-right: 8px;
+	left: -25px;
+}
